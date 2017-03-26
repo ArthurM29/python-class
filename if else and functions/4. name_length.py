@@ -1,4 +1,4 @@
-# Part 2: Write 'name_length()' function that accepts name as parameter, counts its length, checks for 3 conditions:
+# Part 1: Write 'name_length()' function that accepts name as parameter, counts its length, checks for 3 conditions:
 # if name length is in interval (0, 4]  - print that it is a short name.
 # if name length is in interval (4, 8)  - print that it is a middle length name.
 # if name length is in longer than 8  - print that it is a long name.
@@ -25,7 +25,7 @@
 # Varazdat, my dear, your name is way too long, we need to think of a nickname for you buddy !!!
 # Let's call you Varaz
 
-# hint: user string slicing
+# hint: use string slicing
 # e.g.
 # s = 'Sanasar'
 # s = s[:3] + s[3:]
