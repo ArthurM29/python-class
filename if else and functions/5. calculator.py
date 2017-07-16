@@ -15,37 +15,20 @@
 # 7 + 4 = 11
 
 
-def add(num1, num2):
-    return num1 + num2
+def calculate(num1, num2, operator):
+    if operator == '+':
+        result = num1 + num2
+    elif operator == '-':
+        result = num1 - num2
+    elif operator == '*':
+        result = num1 * num2
+    elif operator == '/':
+        result = num1 / num2
+    return result
 
-
-def subtract(num1, num2):
-    return num1 - num2
-
-
-def multiply(num1, num2):
-    return num1 * num2
-
-
-def divide(num1, num2):
-    return num1 / num2
-
-number1 = float(input("Enter first number: "))
-number2 = float(input("Enter second number: "))
+number1 = int(input("Enter first number: "))
+number2 = int(input("Enter second number: "))
 
 operation = input("Enter arithmetic operation (+-*/): ")
-
-if operation == '+':
-    result = add(number1, number2)
-elif operation == '-':
-    result = subtract(number1, number2)
-elif operation == '*':
-    result = multiply(number1, number2)
-elif operation == '/':
-    result = divide(number1, number2)
-
-print(str(number1) + ' ' + operation + ' ' + str(number2) + ' = ' + str(result))
-
-
-
-
+res = calculate(number1, number2, operation)
+print(res)

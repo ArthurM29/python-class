@@ -1,0 +1,1 @@
+# Write a program wich takes the values from a file and randomly picks one, e.g. takes a file with Names and decides who is going to go to Romania
