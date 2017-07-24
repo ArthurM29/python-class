@@ -1,4 +1,4 @@
-from Simple_roulette.functions import spin_the_wheel, place_a_bet, update_balance
+from functions import spin_the_wheel, place_a_bet, update_balance
 
 balance = 100
 

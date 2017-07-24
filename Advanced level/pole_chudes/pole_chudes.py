@@ -1,7 +1,7 @@
 
 # Tricky case: letter has multiple occurrences in the word
 
-from functions import open_letter, import_questions
+from .functions import open_letter, import_questions
 from random import choice
 import math
 
@@ -30,8 +30,3 @@ while guess_word != answer and ATTEMPTS > 0:
         print("%s attempts left" % ATTEMPTS)
         if ATTEMPTS == 0:
             print("You ran out of attempts. You lost the game.")
-
-
-
-
-

@@ -15,5 +15,6 @@ def import_questions():
     for line in open(source_file):
         question, answer = line.split(':')
         questions_answers[question] = answer.strip().upper()   # trim new line character '\n' at the end
+    # TODO close the file
     return questions_answers
 
