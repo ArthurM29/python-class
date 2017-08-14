@@ -14,21 +14,20 @@ def load_cities_db():
     cities_wb = openpyxl.load_workbook(cities_db_file)
     sheet = cities_wb.get_sheet_by_name('Cities_and_countries')
     rows = list(sheet.rows)   # convert the generator to list to avoid “'generator' object is not subscriptable” error on openpyxl 2.3.4
-    cities_and_countries_by_letter = {}
+    cities_countries = {}
     for row in rows:
-        city = row[0].value
-        country = row[1].value
+        city, country = row[0].value, row[1].value
         first_letter = city[0]
-        if first_letter not in cities_and_countries_by_letter:
-            cities_and_countries_by_letter[first_letter] = [(city, country)]
+        if first_letter not in cities_countries:
+            cities_countries[first_letter] = [(city, country)]
         else:
-            cities_and_countries_by_letter[first_letter].append((city, country))
-    return cities_and_countries_by_letter
+            cities_countries[first_letter].append((city, country))
+    return cities_countries
 
 
-def next_city(cities_and_countries):
+def next_city(cities_countries):
     """ receive a list of (city, country) tuples, where city starts with specified letter and return a random one """
-    return choice(cities_and_countries)
+    return choice(cities_countries)
 
 
 def new_city_is_valid(letter, city, cities_in_game):
@@ -46,7 +45,7 @@ def new_city_is_valid(letter, city, cities_in_game):
     return False
 
 
-def apply_difficulty(cities_and_countries_by_letter, level):
+def apply_difficulty(cities_countries, level):
     level = level.lower()
     if level == 'easy':
         level_rate = 0.02   # 133 cities
@@ -55,9 +54,22 @@ def apply_difficulty(cities_and_countries_by_letter, level):
     elif level == 'hard':
         level_rate = 0.3    # 2180 cities
 
-    for letter in cities_and_countries_by_letter:
-        length_by_level = math.ceil(len(cities_and_countries_by_letter[letter]) * level_rate)
-        cities_and_countries_by_letter[letter] = sample(cities_and_countries_by_letter[letter], length_by_level)
+    for letter in cities_countries:
+        length_by_level = math.ceil(len(cities_countries[letter]) * level_rate)
+        cities_countries[letter] = sample(cities_countries[letter], length_by_level)    # take length_by_level random values
+
+
+def pc_has_lost(cities_countries, cities_in_game):
+    """ check if all cities in pc dictionary for the given letter already
+    have been in the game and return the result """
+    cities = []
+    for city, country in cities_countries:
+        cities.append(city.upper())
+    if set(cities) <= set(cities_in_game):
+        return True
+    else:
+        return False
+
 
 
 
