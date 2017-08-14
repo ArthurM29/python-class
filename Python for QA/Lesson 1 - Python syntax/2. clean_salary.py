@@ -1,7 +1,7 @@
 # Write a program that calculates user's clean salary
 
 # declare a variable and store user's 'dirty' salary - 250000
-# declare another variable and store the tax_rate - 25.7
+# declare another variable and store the tax_rate - 25.7%
 # calculate his clean salary (without tax) and print out the clean salary: 185750.0
 
 # test your program with following test cases:
