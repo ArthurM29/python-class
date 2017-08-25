@@ -1,7 +1,7 @@
 
 # Tricky case: letter has multiple occurrences in the word
 
-from .functions import open_letter, import_questions
+from functions import open_letter, import_questions
 from random import choice
 import math
 

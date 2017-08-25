@@ -10,7 +10,7 @@ def load_cities_db():
     key = letter
     value = list of tuples, where tuple =  (city, country)
     """
-    cities_db_file = r'/Users/amanasyan/Documents/Python projects/python-class/cities/cities_DB.xlsx'
+    cities_db_file = r'/Users/amanasyan/Documents/Python-projects/python-class/cities/cities_DB.xlsx'
     cities_wb = openpyxl.load_workbook(cities_db_file)
     sheet = cities_wb.get_sheet_by_name('Cities_and_countries')
     rows = list(sheet.rows)   # convert the generator to list to avoid “'generator' object is not subscriptable” error on openpyxl 2.3.4
@@ -70,6 +70,16 @@ def pc_has_lost(cities_countries, cities_in_game):
     else:
         return False
 
+
+def print_cities(cities_countries):
+    sum = 0
+    for letter in cities_countries:
+        print('{}   : {}'.format(letter, len(cities_countries[letter])))
+        print(4 * '\n')
+        sum += len(cities_countries[letter])
+        for city, country in cities_countries[letter]:
+            print("{} : {}".format(city, country))
+    print("Total - " + str(sum))
 
 
 

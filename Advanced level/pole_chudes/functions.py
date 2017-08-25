@@ -10,7 +10,7 @@ def open_letter(answer, letter, guess_word):
 
 def import_questions():
     """ read given file and return dictionary with question:answer pairs """
-    source_file = r'/Users/amanasyan/Documents/Python projects/python-class/Advanced level/pole_chudes/questions.txt'
+    source_file = r'/Users/amanasyan/Documents/Python-projects/python-class/Advanced level/pole_chudes/questions.txt'
     questions_answers = {}
     for line in open(source_file):
         question, answer = line.split(':')

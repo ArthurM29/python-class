@@ -13,4 +13,3 @@ first_name = input("Enter your first name: ")
 last_name = input("Enter your last name: ")
 email = first_name[0].lower() + last_name.lower() + '@macadamian.com'
 print("Your macadamian email is: " + email)
-
